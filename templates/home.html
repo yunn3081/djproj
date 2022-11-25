@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Logout</title>
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+        <div class="alert alert-success" role="alert">
+            <h3>Welcome {{ user.first_name }}!</h3>
+            <p></p>
+            <a href="{% url 'Logout' %}">Logout?</a>
+        </div>
+        {% else %}
+        <div class="alert alert-success" role="alert">
+            <h3>Welcome!</h3>
+            <a href="{% url 'Register' %}">Signup</a>
+            <a href="{% url 'Login' %}">Login</a>
+        </div>
+        {% endif %}
+    </body>
+</html>

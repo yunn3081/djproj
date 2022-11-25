@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+<h1>Music Ranking</h1>
+<!-- <p>{{currenttime}}</p> -->
+{% for music in musics %}
+    <h2>Rank #{{ music.ranking }}</h2>
+    <p>Song : {{ music.song }}</p>
+    <p>Singer : {{ music.singer }}</p>
+    <p>Release date : {{ music.release_date }}</p>
+    <p></p>
+{% endfor %}
+
+</body>
+</html>
