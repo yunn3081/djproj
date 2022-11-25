@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+    db:
+      container_name: 'postgres'
+      image: postgres
+      environment:
+        - POSTGRES_DB=postgres
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=techbebit
+      ports:
+        - "5432:5432"
+        # (HOST:CONTAINER)
+      # volumes:
+        # - /Users/hannahcheng/Library/ASupportpplication\ /Postgres/var-15:/var/lib/postgresql/data
+        
+    redis:
+      container_name: 'redis'
+      image: redis
+
+    web:
+      container_name: 'myweb'
+      build: ./
+      command: /bin/sh -c "./run.sh"
+      # env_file: .env
+      # restart: always
+      # volumes:
+        # - api_data:/docker_api
+        # (HOST:CONTAINER)
+      ports:
+        - "8000:8000"
+        # (HOST:CONTAINER)
+      depends_on:
+        - db
+        - redis
+    
+   
+
+# volumes:
+#     api_data:
+#     pgdata:
